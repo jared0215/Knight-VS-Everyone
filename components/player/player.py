@@ -176,6 +176,7 @@ class Player(pygame.sprite.Sprite):
     def attack(self, enemies):
         if not self.is_attacking:
             self.is_attacking = True
+            self.is_rolling = False
             self.frames = self.attack_frames
             self.current_frame = 0
             # Reset damage dealt frames at the start of attack
@@ -194,6 +195,7 @@ class Player(pygame.sprite.Sprite):
     def roll(self):
         """Handles the roll action."""
         if not self.is_rolling:
+            self.is_attacking = False
             self.is_rolling = True
             self.frames = self.roll_frames
             self.current_frame = 0
